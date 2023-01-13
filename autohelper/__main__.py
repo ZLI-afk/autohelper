@@ -1,5 +1,5 @@
 import os
-from autohelper_impl import run, check_input
+from .autohelper_impl import run, check_input
 
 
 def main():
