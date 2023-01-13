@@ -5,6 +5,8 @@ import shutil
 import pickle
 from multiprocessing import Pool
 
+from . import post_autotest
+
 strategy_list_str = []
 
 
@@ -293,18 +295,18 @@ def run(param_relax, param_prop,
         try:
             model_list = load_v(model_list_path)
         except:
-            print('run make_file first!\nwill exit!')
+            print('run make_dirs first!\nwill exit!')
             exit()
         else:
             run_dpgen(model_list, indication)
             print('-<< finished! >>-')
 
     elif sys.argv[1] == 'run_relax':
-        print('->> start run_relax step <<-')
+        print('->> start run_dirs step <<-')
         try:
             strategy_list = load_v(strategy_list_path)
         except:
-            print('run make_file first!\nwill exit!')
+            print('run make_dirs first!\nwill exit!')
             exit()
         else:
             run_relax(strategy_list)
@@ -315,7 +317,7 @@ def run(param_relax, param_prop,
         try:
             strategy_list = load_v(strategy_list_path)
         except:
-            print('run make_file first!\nwill exit!')
+            print('run make_dirs first!\nwill exit!')
             exit()
         else:
             get_prop = input('please indicate property list to run: ')
@@ -331,7 +333,9 @@ def run(param_relax, param_prop,
                      props=props,
                      run_mode=get_run_mode)
             print('-<< finished! >>-')
-
+    elif sys.argv[1] == 'post_autotest':
+        print('->> start post_autotest step <<-')
+        post_autotest.main()
     else:
         print('!!wrong input argv!\n' +
               '!!only support:\n' +
@@ -342,6 +346,7 @@ def run(param_relax, param_prop,
               '     make_prop\n' +
               '     run_prop\n' +
               '     post_prop\n' +
+              '     post_autotest\n' +
               '!!please input in order')
 
 
