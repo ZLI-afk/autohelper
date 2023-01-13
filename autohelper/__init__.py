@@ -1,1 +1,1 @@
-from autohelper import autohelper_impl
+from . import autohelper_impl
