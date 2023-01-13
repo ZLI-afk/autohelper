@@ -1,1 +1,1 @@
-import autohelper_impl
+from autohelper import autohelper_impl
