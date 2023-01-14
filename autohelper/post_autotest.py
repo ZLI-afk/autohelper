@@ -480,8 +480,8 @@ def main():
         print('creating post path...')
         os.mkdir('post')
 
-    conf = input('please indicate the configure type to post: ')
     global conf
+    conf = input('please indicate the configure type to post: ')
     props = []
     while True:
         get_prop = input('please input property type for post:')
