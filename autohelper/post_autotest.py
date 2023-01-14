@@ -21,7 +21,6 @@ sys.path.append(os.path.abspath(home_dir+'/template/python/src/util'))
 from constants import eVtoJ, kB, hP, NA
 from matplotlib.lines import Line2D
 
-conf = input('please indicate the configure type to post: ')
 out_path = os.path.join(os.getcwd(), 'autotests/post')
 eos_benchmark = '/home/zhuoyli/benchmarks/Mo/eos/bcc_dft'
 cohesive_benchmark = '/home/zhuoyli/benchmarks/Mo/eos/cohesive_spin'
@@ -481,6 +480,8 @@ def main():
         print('creating post path...')
         os.mkdir('post')
 
+    conf = input('please indicate the configure type to post: ')
+    global conf
     props = []
     while True:
         get_prop = input('please input property type for post:')
